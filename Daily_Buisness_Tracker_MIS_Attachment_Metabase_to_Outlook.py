@@ -12,15 +12,15 @@ script_name = 'your_script_name'
 
 # Add the mail ID to which the data is to be sent
 # You can also replace None in cc and bcc with any email ID or multiple ID's within [""]
-# Ex: ["abc@protium.co.in","xyz@protium.co.in"]
-mail_recipient_list = ["sbl.business.support@protium.co.in"]
+# Ex: ["abc@gmail.com","xyz@gmail.com"]
+mail_recipient_list = ["xyz@gmail.com"]
 mail_cc_list = None
 mail_bcc_list = None
 
 # Enter the attachments in the same format as done below
 # You can add a new attachment by typing its card ID for the question this can be found from the url
 # For ex from
-# https://metabase.protium.co.in/question/10485-eeg-daily-mis-raw-data-query-edp-superset-lap
+# https://metabase.protium.co.in/question/123456-daily-mis-raw-data
 # Take the number mentioned just before the file name, so the card id to be entered will be 10485
 # If 'None' is provided no column operations are done on data
 # Ex: 10101: None
@@ -28,7 +28,7 @@ mail_bcc_list = None
 # Within in 'columns' [] enter the column names from query in the same sequence in which you want the column names within the attachment
 # In date_columns write all column names which contains dates as values
 questions_to_columns = {
-    10485: {
+    11111: {
         'columns': [
             'Lead Code', 'Case Name', 'Branch', 'Cluster', 'Product', 'SO ID',
             'Lead Created Date', 'login_date', 'Status', 'Current Stage', 'Case Rejection Date',
@@ -48,7 +48,7 @@ questions_to_columns = {
                 'Approved Amount',
                 'Disbursed Amount','insurance_premium_amount during push to lms stage']
     },
-    10486: {
+    22222: {
         'columns': [
             'Lead Code', 'Case Name', 'Branch', 'Cluster', 'Product', 'SO ID',
             'Lead Created Date', 'login_date', 'Status', 'Current Stage', 'Case Rejection Date',
@@ -67,7 +67,7 @@ questions_to_columns = {
                           'Push to LMS Amount', 'Push to LMS ROI', 'Push to LMS PF', 'insurance_premium_amount during push to lms stage']
 
     },
-    10686: {
+    33333: {
         'columns': [
                     'Lead Code', 'Case Name', 'Branch', 'Cluster', 'Product', 'SO ID', 'DSA Code',
                     'Lead Created Date', 'Login Date', 'Status', 'Current Stage', 'Case Rejection Date',
@@ -87,7 +87,7 @@ questions_to_columns = {
                     'Push to LMS Amount', 'Push to LMS ROI', 'Push to LMS PF','insurance_premium_amount during push to lms stage','Applied Loan Amount'
         ]
     },
-    10687: {
+    44444: {
         'columns': [
                     'Lead Code', 'Case Name', 'Branch', 'Cluster', 'Product', 'SO ID', 'DSA Code',
                     'Lead Created Date', 'Login Date', 'Status', 'Current Stage', 'Case Rejection Date',
@@ -107,7 +107,7 @@ questions_to_columns = {
                     'Push to LMS Amount', 'Push to LMS ROI', 'Push to LMS PF',
                     'insurance_premium_amount during push to lms stage','Applied Loan Amount']
     },
-    10688: {
+    55555: {
         'columns': [
                     'Lead Code', 'Case Name', 'Branch', 'Cluster', 'Product', 'SO ID', 'DSA Code',
                     'Lead Created Date', 'login_date', 'Status', 'Current Stage', 'Case Rejection Date',
@@ -128,7 +128,7 @@ questions_to_columns = {
                      'Push to LMS Amount', 'Push to LMS ROI', 'Push to LMS PF',
                     'insurance_premium_amount during push to lms stage']
     },
-    10754: {
+    66666: {
         'columns': [
                     'Lead Code', 'Case Name', 'Branch', 'Cluster', 'Product', 'SO ID', 'Lead Created Date',
                     'login_date', 'Status', 'Current Stage', 'Case Rejection Date', 'CM of Case',
@@ -151,9 +151,9 @@ questions_to_columns = {
 
 # Write the name which you want for your attachment within the mail
 question_to_script_name = {
-                            10485: 'EEG_Raw_Data', 10486: 'BBL_Raw_Data',
-                            10686: 'SME_Raw_Data', 10687: 'SME_BL_Raw_Data',
-                            10688: 'MF_Raw_Data', 10754: 'EIL_Raw_Data'
+                            11111: 'EEG_Raw_Data', 22222: 'BBL_Raw_Data',
+                            33333: 'SME_Raw_Data', 44444: 'SME_BL_Raw_Data',
+                            55555: 'MF_Raw_Data', 66666: 'EIL_Raw_Data'
                         }
 
 team_name = 'SBL'
@@ -161,7 +161,7 @@ team_name = 'SBL'
 
 def fetch_data(card_id):
 # Enter Your Email ID and Password in the quotes "abc@protium.co.in", password="abc@12"
-    cli = Client(username="prerak.joshi@protium.co.in", password="abc@123",
+    cli = Client(username="prerak.joshi@gmail.com", password="abc@123",
                  base_url="https://metabase.protium.co.in")
     cli.authenticate()
     json_result = cli.cards.download(card_id=card_id, format='json')
